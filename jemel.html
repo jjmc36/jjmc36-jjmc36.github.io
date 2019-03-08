@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+div {
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.price {
+  float: right;
+}
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<ul>
+      <li><button onclick=variety()> About me</button></li>
+      <li><button onclick=Best()>Best colognes</button></li>
+      <li><button onclick=Worst()>Worst colognes</button></li>
+    </ul>
+<h1>  Jemel Cologne</h1>
+<h2> The best cologne website</h2>
+<div id="apples"></div>
+
+
+<script>
+firstDivs = [
+   '<div class="item"><p>valentino uomo <span class="price">$140</span><br /><small>valentino uomo is an designer fragrance from the house or "Chanel" Due to its logevity, projection and unique smell it is one of the best fragrances to purchase. </small></p></div>',
+   '<div class="item"><p>Dolce and Gabbana The one <span class="price">$120</span><br /><small>is one of the most seductive fragrances in the market as we speak . designed by the house of Dolce And Gabbana its unique yet some seductive smell appeals the ladies, through its enormous projection and the note of mint it is one of the top 3 most popular cologne fragrances .</small></p></div>',
+   '<div class="item"><p> <span class="price">$350</span><br /><small>this cologne is an classic cologne and is one of the best colognes of all time. By The Fireplace takes the spot for #1 cologne it has the scent of an campfire that just draws the lady towards you .</small></p></div>',
+]
+SecondDivs = [
+   '<div class="item"><p> Creed Aventus <span class="price">$350</span><br /><small>Creed Aventusis an designer fragrance from the house or "Creed" Due to its longevity, projection and popularity with the ladies it is one of the best fragrances that has ever been made in history. </small></p></div>',
+   '<div class="item"><p>versace eros  <span class="price">$120</span><br /><small>is one of the most popular clubbng fragrances. designed by the house of versace its unique yet apple mint smell appeals both sexes, through its amazing  projection and the note of apple it is one of the top 3 most popular cologne fragrances. </small></p></div>',
+   '<div class="item"><p>black phantom  <span class="price">$250</span><br /><small>black phantom is an new  cologne and is one of the best colognes of all time. black phantom masculine smell takes the spot for #1 best selling cologne of 2018 .</small></p></div>',
+]
+ThirdDivs = [
+   '<div class="item"><p>ferrari extreme<span class="price">$110</span><br /><small>ferrari extreme is one of the worst designer fragrances to ever hit the market from the house of"Ferrari" Due to its horrible  logevity, projection and horrible smell it is one of the worst fragrances to purchase. </small></p></div>',
+   '<div class="item"><p>Perry ellis 360  <span class="price">$20</span><br /><small>is one of the worst clubbng fragrances. designed by perry  its unique yet some feminine smell doesnt fit suit for masculine men, through its enormous projection and the note of pepper is noticed to much it is an decent cologne to buy. fragrances.</small></p></div>',
+   '<div class="item"><p>Versace pour home  <span class="price">350</span><br /><small>this cologne is an classic cologne and is one of the  worst of all time. Versace pour home takes the spot for #1 worst colgone ever it projects to much and the longevity is horrible.  .</small></p></div>',
+]
+
+
+
+
+	firstImages = [
+'url("https://fimgs.net/images/secundar/o.39579.jpg")',
+'url("http://fimgs.net/images/perfume/o.31909.jpg")',
+'url("http://fimgs.net/images/perfume/o.31623.jpg")',
+]
+SecondImages = [
+'url("http://fimgs.net/images/perfume/o.9828.jpg")',
+'url("https://scentbound.files.wordpress.com/2013/07/versace-eros_bottle.jpg")',
+'url("https://thecandyperfumeboy.files.wordpress.com/2017/04/2017-04-07-21-25-11.jpg?w=584")',
+]
+ThirdImages = [
+  'url("http://3.bp.blogspot.com/-ZxUxErLsNPE/VDU9qWjjRdI/AAAAAAAAEXQ/0fP7s0shNbs/s1600/FerrariExtreme1.jpg")',
+  'url("http://img.fragrancex.com/images/products/parent/medium/1049m.jpg")',
+  'url("http://onpointfresh.com/wp-content/uploads/2016/03/versace-pour-homme-2.jpg")',
+]
+
+
+
+
+
+function variety() {
+  pepper = document.getElementById("apples")
+  pepper.innerHTML = ''
+	pepper.innerHTML += firstDivs[0]
+	pepper.innerHTML += firstDivs[1]
+  pepper.innerHTML += firstDivs[2]
+ //alert("you have looked at an variety of colgnes")
+  items = document.getElementsByClassName("item")
+  for (i=0; i<3; i=i+1) {
+	items[i].style.background = firstImages[i] 
+	items[i].style.backgroundSize = '100% 100%'
+  }	
+   
+}
+
+function Best() {
+  mint = document.getElementById("apples")
+  mint.innerHTML = ''
+	mint.innerHTML += SecondDivs[0]
+	mint.innerHTML += SecondDivs[1]
+  mint.innerHTML += SecondDivs[2]
+ //alert("the Best colognes linked been activated")
+  items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+	items[i].style.background = SecondImages[i] 
+	items[i].style.backgroundSize = '100% 100%'
+  }	
+ 
+}
+
+function Worst() {
+  pear = document.getElementById("apples")
+  pear.innerHTML = ''
+	pear.innerHTML += ThirdDivs[0]
+	pear.innerHTML += ThirdDivs[1]
+  pear.innerHTML += ThirdDivs[2]
+  //alert("the Worst colognes linked has been activated")
+  items = document.getElementsByClassName("item")
+  for (i=0; i<3; i=i+1) {
+	items[i].style.background = ThirdImages[i] 
+	items[i].style.backgroundSize = '100% 100%'
+  }	
+}
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+  
+</script>
+
+</body>
